@@ -59,3 +59,13 @@ az sql server firewall-rule create --name AllowLocalClient --server mysqldbbr1 -
  az sql db show-connection-string --client ado.net --server mysqldbbr1 --name coreDB   
 
     "Server=tcp:mysqldbbr1.database.windows.net,1433;Database=coreDB;User ID=briegel;Password=wriegelPs#2;Encrypt=true;Connection Timeout=30;" 
+
+
+
+// setup azure to build from github actions
+
+// create myResourceGroupWindow via Azure browser
+
+az appservice plan create --resource-group myResourceGroupWindow --name myWindowsPlan
+
+az --% webapp create --resource-group myResourceGroupWindow --plan myWindowsPlan --name brDotNetCoreWindow --runtime "DOTNETCORE|3.1" --deployment-local-git
